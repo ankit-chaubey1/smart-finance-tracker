@@ -11,13 +11,13 @@ import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAMzjAUKCMdke8cmuN2qjkdTnbJ_Zob5t4",
+  apiKey: "Your_key",
   authDomain: "financetracker-aed61.firebaseapp.com",
   projectId: "financetracker-aed61",
-  storageBucket: "financetracker-aed61.firebasestorage.app",
-  messagingSenderId: "916135072764",
-  appId: "1:916135072764:web:847c1dbeebe9f36b701879",
-  measurementId: "G-DQFXJGE2PG"
+  storageBucket: "yours",
+  messagingSenderId: "yours",
+  appId: "yours",
+  measurementId: "yours"
 };
 
 export const appConfig: ApplicationConfig = {
