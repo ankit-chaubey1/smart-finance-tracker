@@ -1,59 +1,28 @@
-# SmartFinance
+# 💰 Smart Finance Tracker 🚀
+#Live Link - https://financetracker-aed61.web.app/
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.8.
+Smart Finance Tracker is a modern, high-performance web application built with **Angular 21** and **Firebase**. It helps users track their daily expenses and income with a sleek UI, real-time updates, and professional reporting features.
 
-## Development server
+## ✨ Key Features
 
-To start a local development server, run:
+- **📊 Real-time Dashboard:** Track your balance, total income, and total expenses at a glance.
+- **📑 Professional PDF Reports:** Export your financial history into a clean, well-formatted PDF with just one click.
+- **🎉 Modern UI/UX:** Built with **Tailwind CSS** and **Angular Animations**, featuring a "Confetti Celebration" when you save money!
+- **📱 PWA Ready:** Install the app on your phone's home screen. Works like a native mobile app with offline support.
+- **🔥 Firebase Integration:** Secure Authentication and Real-time Database (NoSQL) for instant data syncing across devices.
 
-```bash
-ng serve
-```
+## 🛠️ Tech Stack
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Frontend:** Angular 21, TypeScript, Tailwind CSS
+- **Backend:** Firebase Realtime Database
+- **Auth:** Firebase Authentication
+- **Tools:** `jspdf` for reports, `canvas-confetti` for celebrations, `@angular/pwa` for mobile experience.
 
-## Code scaffolding
+## 🚀 Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Follow these steps to run the project locally:
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Ankit-chaubey1/smart-finance-tracker.git](https://github.com/Ankit-chaubey1/smart-finance-tracker.git)
+   cd smart-finance-tracker
