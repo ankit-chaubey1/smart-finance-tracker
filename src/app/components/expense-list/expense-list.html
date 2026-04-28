@@ -1,0 +1,75 @@
+<div style="border: 1px solid #007bff; padding: 20px; border-radius: 8px; margin: 10px; background-color: #f9f9f9; font-family: sans-serif;">
+  
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
+    <div style="background: white; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #eee;">
+      <small style="color: #666; display: block;">Total Spent</small>
+      <strong style="color: #007bff; font-size: 1.1rem;">{{ totalSpent() | currency:'INR':'symbol':'1.2-2' }}</strong>
+    </div>
+    <div style="background: white; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #eee;">
+      <small style="color: #666; display: block;">Highest</small>
+      <strong style="color: #dc3545; font-size: 1.1rem;">{{ highestExpense() | currency:'INR':'symbol' }}</strong>
+    </div>
+    <div style="background: white; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #eee;">
+      <small style="color: #666; display: block;">Transactions</small>
+      <strong style="color: #28a745; font-size: 1.1rem;">{{ totalCount() }}</strong>
+    </div>
+  </div>
+
+  <input 
+    type="text" 
+    placeholder="🔍 Search by description or category..." 
+    (input)="searchQuery.set($any($event.target).value)"
+    style="width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; outline: none;"
+  >
+
+  <ul style="padding: 0; margin-top: 10px;">
+    @for (item of filteredExpenses(); track item.id) {
+      <li style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #eee; list-style: none; background: white; margin-bottom: 5px; border-radius: 6px;">
+        
+        @if (editingId() === item.id) {
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; flex: 1;">
+            <input [(ngModel)]="editDescription" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 140px;">
+            <input type="number" [(ngModel)]="editAmount" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 80px;">
+            <select [(ngModel)]="editCategory" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+              <option value="Food">🍔 Food</option>
+              <option value="Rent">🏠 Rent</option>
+              <option value="Fun">🎉 Fun</option>
+              <option value="Bills">⚡ Bills</option>
+              <option value="Travel">🚗 Travel</option>
+              <option value="Clothes">👕 Clothes</option>
+            </select>
+            <input type="date" [(ngModel)]="editDate" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+          </div>
+          
+          <div style="margin-left: 10px; display: flex; gap: 5px;">
+            <button (click)="saveEdit(item.id)" style="background: #28a745; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Save</button>
+            <button (click)="cancelEdit()" style="background: #6c757d; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">❌</button>
+          </div>
+        } 
+        @else {
+          <div style="flex: 1;">
+            <div style="font-size: 0.75rem; color: #888; margin-bottom: 4px;">
+              {{ item.date }} • <span style="background: #f0f2f5; padding: 2px 8px; border-radius: 12px; color: #333; font-weight: 600;">
+                {{ getCategoryEmoji(item.category) }} {{ item.category }}
+              </span>
+            </div>
+            <span style="font-size: 1rem; color: #333;">
+              <strong style="text-transform: capitalize;">{{ item.description }}</strong>: 
+              <span style="color: #28a745; font-weight: bold;">{{ item.amount | currency:'INR':'symbol' }}</span>
+            </span>
+          </div>
+          
+          <div style="margin-left: 10px; display: flex; gap: 8px;">
+            <button (click)="startEdit(item)" style="border: 1px solid #007bff; color: #007bff; background: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">✏️ Edit</button>
+            <button (click)="deleteExpense(item.id)" style="border: 1px solid #dc3545; color: #dc3545; background: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">🗑️</button>
+          </div>
+        }
+
+      </li>
+    } @empty {
+      <div style="text-align: center; padding: 40px 0;">
+        <p style="color: #999; font-style: italic; margin: 0;">No matching records found.</p>
+      </div>
+    }
+  </ul>
+</div>

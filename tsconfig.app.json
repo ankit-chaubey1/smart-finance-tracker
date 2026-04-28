@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": ["canvas-confetti"],   // 👈 Khali bracket mein ye daal do
+    "allowSyntheticDefaultImports": true // 👈 Ye line bhi add kar do safety ke liye
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
+}
